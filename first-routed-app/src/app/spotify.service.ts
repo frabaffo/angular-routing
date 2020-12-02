@@ -20,11 +20,23 @@ export class SpotifyService {
  //Ritorno un observable ai componenti che richiedono il servizio
   }
 
-  
  getTrack(id: string) {
     const url = `https://api.spotify.com/v1/tracks/${id}`;
     const headers = new HttpHeaders({Authorization: environment.oauthToken}); 
     return this.http.get(url, { headers });
   }
 
+   searchArtist(query: string) {
+    const url = `https://api.spotify.com/v1/search?q=${query}&type=artist`;
+    const headers = new HttpHeaders({Authorization: environment.oauthToken})
+    let obsTracks = this.http.get(url, { headers });
+    return obsTracks;
+ //Ritorno un observable ai componenti che richiedono il servizio
+  }
+
+  getArtist(id: string) {
+    const url = `https://api.spotify.com/v1/artists/${id}`;
+    const headers = new HttpHeaders({Authorization: environment.oauthToken}); 
+    return this.http.get(url, { headers });
+  }
 }
