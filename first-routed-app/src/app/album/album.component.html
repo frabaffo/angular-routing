@@ -1,1 +1,20 @@
-<p>album works!</p>
+<div *ngIf="album">
+    <h1>{{ album.name }}</h1>
+    <p>{{ album.label }} </p>
+    <h2>Popolarità: </h2>
+    <p> 
+    {{ album.popularity }} 
+    </p>
+    <h2>Data rilascio: </h2>
+    <p> 
+    {{ album.release_date }} 
+    </p>
+    <h2>Numero tracce: </h2>
+    <p> 
+    {{ album.total_tracks }} 
+    </p>
+    <p>
+        <img src="{{ album.images[1].url }}">
+    </p>
+    <p><a href (click)="back()">Back</a></p>
+</div>
